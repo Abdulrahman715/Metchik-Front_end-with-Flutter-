@@ -1,10 +1,22 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:metchik/constants.dart';
+import 'package:metchik/cubit/theme_cubit.dart';
+import 'package:metchik/firebase_options.dart';
 import 'package:metchik/views/home_view.dart';
 import 'package:metchik/views/products_view.dart';
 import 'package:metchik/views/register_view.dart';
 
-void main() {
-  runApp(Metchik());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
+  runApp(
+    // 1. بنحط الـ Provider في أعلى نقطة في التطبيق
+    BlocProvider(create: (context) => ThemeCubit(), child: const Metchik()),
+  );
 }
 
 class Metchik extends StatelessWidget {
@@ -12,14 +24,29 @@ class Metchik extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      routes: {
-        HomeView.id: (context) => HomeView(),
-        ProductsView.id: (context) => ProductsView(),
-        RegisterView.id: (context) => RegisterView(),
+    return BlocBuilder<ThemeCubit, ThemeMode>(
+      builder: (context, currentTheme) {
+        return MaterialApp(
+          themeMode: currentTheme,
+          theme: ThemeData(
+            brightness: Brightness.light,
+            primaryColor: kPrimaryColor,
+          ),
+
+          darkTheme: ThemeData(
+            brightness: Brightness.dark,
+            primaryColor: kPrimaryColor,
+          ),
+          debugShowCheckedModeBanner: false,
+
+          routes: {
+            HomeView.id: (context) => HomeView(),
+            ProductsView.id: (context) => ProductsView(),
+            RegisterView.id: (context) => RegisterView(),
+          },
+          initialRoute: HomeView.id,
+        );
       },
-      initialRoute: HomeView.id,
     );
   }
 }

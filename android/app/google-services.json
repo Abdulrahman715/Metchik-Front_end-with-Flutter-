@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "788827483235",
+    "project_id": "metchik",
+    "storage_bucket": "metchik.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:788827483235:android:869c36ebc419b6e7c89c56",
+        "android_client_info": {
+          "package_name": "com.example.metchik"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqh1SJKuNfWuaQig58h4y0kleWTEHQfRg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -28,18 +28,21 @@ class CustomTextFormField extends StatelessWidget {
       controller: controller,
       keyboardType: keyboardType,
       style: TextStyle(
-        color: Colors.black,
+        color: Theme.of(
+          context,
+        ).textTheme.bodyLarge?.color, // بياخد اللون المناسب للثيم تلقائياً
       ),
       decoration: InputDecoration(
-
         contentPadding: EdgeInsets.all(8),
         labelText: labelText,
         labelStyle: TextStyle(
-          color: Colors.black,
+          fontWeight: FontWeight.w600,
+          color: Theme.of(context).textTheme.bodyLarge?.color,
         ),
         hintText: hintText,
         hintStyle: TextStyle(
-          color: Colors.grey,
+          fontWeight: FontWeight.w600,
+          color: Theme.of(context).textTheme.bodyLarge?.color,
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:metchik/constants.dart';
+import 'package:metchik/views/login_view.dart';
 import 'package:metchik/views/products_view.dart';
 import 'package:metchik/views/register_view.dart';
 import 'package:metchik/widgets/custom_elevated_button.dart';
@@ -26,9 +27,14 @@ class HomeBody extends StatelessWidget {
               onPressed: () {
                 Navigator.pushNamed(context, RegisterView.id);
               },
-              word: 'Register'
+              word: 'Register',
             ),
-            CustomElevatedButton(word: 'Login'),
+            CustomElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, LoginView.id);
+              },
+              word: 'Login',
+            ),
           ],
         ),
       ),

@@ -1,66 +1,49 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:metchik/cubit/auth/auth_register_cubit.dart';
+import 'package:metchik/cubit/auth/auth_login_cubit.dart';
 import 'package:metchik/cubit/auth/auth_states.dart';
 import 'package:metchik/helpers/show_snack_bar_message.dart';
-import 'package:metchik/views/login_view.dart';
 import 'package:metchik/views/products_view.dart';
+import 'package:metchik/views/register_view.dart';
 import 'package:metchik/widgets/custom_different_option.dart';
-import 'package:metchik/widgets/custom_register_fields.dart';
+import 'package:metchik/widgets/custom_login_fields.dart';
 import 'package:metchik/widgets/elevated_button.dart';
 import 'package:metchik/widgets/register_and_login_image.dart';
 
-class RegisterBody extends StatefulWidget {
-  const RegisterBody({super.key});
+class LoginBody extends StatefulWidget {
+  const LoginBody({super.key});
 
   @override
-  State<RegisterBody> createState() => _RegisterBodyState();
+  State<LoginBody> createState() => _LoginBodyState();
 }
 
-class _RegisterBodyState extends State<RegisterBody> {
+class _LoginBodyState extends State<LoginBody> {
   //! القيم االى هيكتبها المستخدم
   final TextEditingController emailController = TextEditingController();
-
-  final TextEditingController nameController = TextEditingController();
-
-  final TextEditingController phoneController = TextEditingController();
-
   final TextEditingController passwordController = TextEditingController();
-
-  final TextEditingController roleController = TextEditingController();
 
   //! مفتاح الفورم علاشن الفاليديشون
   final GlobalKey<FormState> formKey = GlobalKey();
-
-  //! علاشن اليوزر لما يختار يوزر عادى ولا اونر
-  String? selectedRole;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       // color: Colors.white,
+      height: double.infinity,
       child: SingleChildScrollView(
         child: Form(
           key: formKey,
           child: Column(
             children: [
-              RegisterAndLoginImage(headText: 'Create Account '),
+              RegisterAndLoginImage(headText: 'Login '),
 
               // هنعدل الـ Widget ده يتقبل الـ Controllers
-              CustomRegisterFields(
+              CustomLoginFields(
                 emailController: emailController,
                 passwordController: passwordController,
-                nameController: nameController,
-                phoneController: phoneController,
-                onRoleChanged: (role) {
-                  setState(() {
-                    // استخدمنا setState عشان نحدث الـ UI لما يختار
-                    selectedRole = role;
-                  });
-                },
               ),
 
-              BlocConsumer<AuthRegisterCubit, AuthState>(
+              BlocConsumer<AuthLoginCubit, AuthState>(
                 listener: (context, state) {
                   if (state is AuthSuccess) {
                     Navigator.pushNamed(context, ProductsView.id);
@@ -76,25 +59,17 @@ class _RegisterBodyState extends State<RegisterBody> {
 
                   // الزرار هيظهر في حالة AuthInitial أو AuthFailure أو AuthSuccess
                   return AnotherCustomElevatedButton(
+                    // داخل الـ onPressed في LoginBody
                     onPressed: () {
                       if (formKey.currentState!.validate()) {
-                        if (selectedRole != null) {
-                          context.read<AuthRegisterCubit>().requisterUser(
-                            email: emailController.text,
-                            password: passwordController.text,
-                            name: nameController.text,
-                            phone: phoneController.text,
-                            role: selectedRole!,
-                          );
-                        } else {
-                          showSnackBarMessage(
-                            context,
-                            message: "Please select who you are!",
-                          );
-                        }
+                        // بننادي على الـ Cubit بتاع اللونج
+                        context.read<AuthLoginCubit>().loginUser(
+                          email: emailController.text,
+                          password: passwordController.text,
+                        );
                       }
                     },
-                    buttonText: 'Register',
+                    buttonText: 'Login',
                   );
                 },
               ),
@@ -102,10 +77,10 @@ class _RegisterBodyState extends State<RegisterBody> {
               SizedBox(height: 20),
 
               CustomDifferentOption(
-                sentence: "I'm already have an account?",
-                anotherOption: "Sign In",
+                sentence: "Don't have an account?",
+                anotherOption: "Sign Up",
                 onTap: () {
-                  Navigator.pushNamed(context, LoginView.id);
+                  Navigator.pushNamed(context,RegisterView.id);
                 },
               ),
 

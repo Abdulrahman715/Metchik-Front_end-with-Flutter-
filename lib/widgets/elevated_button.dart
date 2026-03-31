@@ -22,7 +22,7 @@ class AnotherCustomElevatedButton extends StatelessWidget {
           foregroundColor: Colors.white,
           textStyle: TextStyle(
             fontSize: 24,
-            fontWeight: FontWeight.w300,
+            fontWeight: FontWeight.w600,
           )
         ),
         onPressed: onPressed, 

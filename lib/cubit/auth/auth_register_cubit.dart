@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:metchik/cubit/auth/auth_states.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class AuthCubit extends Cubit<AuthState> {
-  AuthCubit() : super(AuthInitial());
+class AuthRegisterCubit extends Cubit<AuthState> {
+  AuthRegisterCubit() : super(AuthInitial());
 
   FirebaseAuth auth = FirebaseAuth.instance;
   FirebaseFirestore firestore = FirebaseFirestore.instance;

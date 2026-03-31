@@ -20,7 +20,7 @@ class RegisterAndLoginImage extends StatelessWidget {
       ),
       child: Stack(
         children: [
-          CustomPositioned(image: kLightColorImage, valueOfLeft: 30),
+          CustomPositioned(image: kLightColorImage, valueOfLeft: 30 , valueOfTop: -10,),
           CustomPositioned(
             image: kMoonImage,
             valueOfLeft: 140,

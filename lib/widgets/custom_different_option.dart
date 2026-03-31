@@ -20,8 +20,8 @@ class CustomDifferentOption extends StatelessWidget {
       child: RichText(
         text: TextSpan(
           text: sentence,
-          style: const TextStyle(
-            color: Colors.black,
+          style: TextStyle(
+            color: Theme.of(context).textTheme.bodyLarge?.color,
             fontSize: 18,
             fontWeight: FontWeight.w500,
           ),
@@ -35,8 +35,7 @@ class CustomDifferentOption extends StatelessWidget {
                 fontWeight: FontWeight.w600,
                 decoration: TextDecoration.underline, // 👈 الخط تحتها
               ),
-              recognizer: TapGestureRecognizer()
-                ..onTap = onTap, // 👈 هنا الضغط
+              recognizer: TapGestureRecognizer()..onTap = onTap, // 👈 هنا الضغط
             ),
           ],
         ),

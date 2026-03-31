@@ -21,7 +21,8 @@ class CustomRegisterFields extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
-      child: Column( // شيلنا الـ SingleChildScrollView لأن الأب (RegisterBody) فيه واحد أصلاً
+      child: Column(
+        // شيلنا الـ SingleChildScrollView لأن الأب (RegisterBody) فيه واحد أصلاً
         children: [
           CustomTextFormField(
             controller: nameController,
@@ -51,21 +52,46 @@ class CustomRegisterFields extends StatelessWidget {
             // تأكد إن الـ CustomTextFormField بتاعك بيدعم obscureText للباسورد
           ),
           const SizedBox(height: 40),
-          
+
           DropdownButtonFormField<String>(
-            style: TextStyle(
-              color: Colors.black,
-            ),
+            style: TextStyle(color: Colors.black),
             decoration: InputDecoration(
               labelText: 'Who are you?',
-              labelStyle: const TextStyle(fontSize: 18 , color: Colors.black),
+              labelStyle: TextStyle(
+                fontWeight: FontWeight.w600,
+                fontSize: 24,
+                color: Theme.of(context).textTheme.bodyLarge?.color,
+              ),
               contentPadding: const EdgeInsets.all(16),
               // border: OutlineInputBorder(borderRadius: BorderRadius.circular(16)),
             ),
-            hint: const Text('Owner & User'),
-            items: const [
-              DropdownMenuItem(value: 'Owner', child: Text('Store Owner')),
-              DropdownMenuItem(value: 'User', child: Text('Customer')),
+            hint: const Text(
+              'Owner & User',
+              style: TextStyle(fontWeight: FontWeight.w600),
+            ),
+            items: [
+              DropdownMenuItem(
+                value: 'Owner',
+                child: Text(
+                  'Store Owner',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 16,
+                    color: Theme.of(context).textTheme.bodyLarge?.color,
+                  ),
+                ),
+              ),
+              DropdownMenuItem(
+                value: 'User',
+                child: Text(
+                  'Customer',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 16,
+                    color: Theme.of(context).textTheme.bodyLarge?.color,
+                  ),
+                ),
+              ),
             ],
             onChanged: onRoleChanged, // بيبعت القيمة فوراً للـ RegisterBody
             validator: (value) => value == null ? 'Please select a role' : null,

@@ -19,7 +19,7 @@ class UpdateProduct {
       'images': [images],
     };
 
-    dynamic data = await Api().postApiData(
+    dynamic data = await Api().putApiData(
       url: 'https://api.escuelajs.co/api/v1/products/$id',
       bodyOfPost: body,
     );

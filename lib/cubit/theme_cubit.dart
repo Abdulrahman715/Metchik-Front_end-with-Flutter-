@@ -13,7 +13,7 @@ class ThemeCubit extends Cubit<ThemeMode> {
     bool? isDark = await ThemeService.loadTheme();
 
     if (isDark == null) {
-      emit(ThemeMode.system);
+      emit(ThemeMode.light);
     } else {
       emit(isDark ? ThemeMode.dark : ThemeMode.light);
     }

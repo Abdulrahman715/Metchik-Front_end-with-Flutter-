@@ -17,6 +17,8 @@ class AuthRegisterCubit extends Cubit<AuthState> {
     required String role,
   }) async {
     try {
+      emit(AuthLoading());
+
       //! create account in firebase
       UserCredential userCredential = await auth.createUserWithEmailAndPassword(
         email: email,
@@ -29,13 +31,19 @@ class AuthRegisterCubit extends Cubit<AuthState> {
         'name': name,
         'email': email,
         'phone': phone,
-        'password': password,
+        // 'password': password,
+        //         ❌ ده غلط جدًا
+        // 💥 ليه؟
+
+        // Firebase Auth بيشفر الباسورد أصلاً
+        // تخزينه في Firestore خطر أمني
         'createdAt': DateTime.now(),
+        'role':role,
       });
 
       emit(AuthSuccess());
     } on FirebaseAuthException catch (e) {
-      emit(AuthFailure(errMessage: e.toString()));
+      emit(AuthFailure(errMessage: e.message ?? "Auth error"));
     } catch (e) {
       emit(AuthFailure(errMessage: e.toString()));
     }

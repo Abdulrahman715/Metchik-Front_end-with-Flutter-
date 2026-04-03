@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:metchik/widgets/custom_home_app_bar.dart';
+import 'package:metchik/widgets/products_view_body.dart';
 
 class ProductsView extends StatelessWidget {
   const ProductsView({super.key});
@@ -8,9 +10,8 @@ class ProductsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('hello'),
-      ),
+      appBar: customHomeAppBar(),
+      body:ProductsViewBody(),
     );
   }
 }

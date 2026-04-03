@@ -54,7 +54,7 @@ class CustomRegisterFields extends StatelessWidget {
           const SizedBox(height: 40),
 
           DropdownButtonFormField<String>(
-            style: TextStyle(color: Colors.black),
+            style: TextStyle(color: Theme.of(context).textTheme.bodyLarge?.color,),
             decoration: InputDecoration(
               labelText: 'Who are you?',
               labelStyle: TextStyle(

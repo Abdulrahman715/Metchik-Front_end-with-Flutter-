@@ -65,6 +65,15 @@ class CustomProductsBody extends StatelessWidget {
             product.images[0],
             height: 120,
             width: 120,
+            fit: BoxFit.contain,
+            errorBuilder: (context, error, stackTrace) {
+              // لو الصورة فشلت، يعرض أيقونة بديلة بدل ما يطلع Error
+              return const Icon(
+                Icons.broken_image,
+                size: 100,
+                color: Colors.grey,
+              );
+            },
           ),
         ),
       ],

@@ -46,7 +46,7 @@ class ProductsViewBody extends StatelessWidget {
             ),
           ),
 
-          SizedBox(height: 40),
+          SizedBox(height: 40), 
 
           FutureBuilder(
             future: AllProductsService().getAllProducts(),

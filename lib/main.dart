@@ -6,6 +6,7 @@ import 'package:metchik/cubit/theme_cubit.dart';
 import 'package:metchik/firebase_options.dart';
 import 'package:metchik/views/home_view.dart';
 import 'package:metchik/views/login_view.dart';
+import 'package:metchik/views/product_details.dart';
 import 'package:metchik/views/products_view.dart';
 import 'package:metchik/views/register_view.dart';
 
@@ -45,6 +46,7 @@ class Metchik extends StatelessWidget {
             ProductsView.id: (context) => ProductsView(),
             RegisterView.id: (context) => RegisterView(),
             LoginView.id: (context) => LoginView(),
+            ProductDetails.id:(context)=>ProductDetails(),
           },
           initialRoute: HomeView.id,
         );

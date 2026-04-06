@@ -71,7 +71,7 @@ class ProductsViewBody extends StatelessWidget {
                 ),
                 itemCount: products.length,
                 itemBuilder: (context, index) {
-                  return CustomProductsBody(
+                  return CustomProductsBody( //! body of the product card
                     product: products[index],
                   );
                 },

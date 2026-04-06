@@ -9,9 +9,9 @@ class CustomProductsBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
       onTap: () {
-        Navigator.pushNamed(context, ProductDetails.id);
+        Navigator.pushNamed(context, ProductDetails.id , arguments: product);
       },
       child: Stack(
         clipBehavior: Clip.none,

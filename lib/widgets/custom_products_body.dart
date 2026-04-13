@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:metchik/cubit/favoutites/favourites_cubit.dart';
+import 'package:metchik/cubit/favoutites/favourites_state.dart';
 import 'package:metchik/model/product_model.dart';
 import 'package:metchik/views/product_details.dart';
 
@@ -11,7 +14,7 @@ class CustomProductsBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(context, ProductDetails.id , arguments: product);
+        Navigator.pushNamed(context, ProductDetails.id, arguments: product);
       },
       child: Stack(
         clipBehavior: Clip.none,
@@ -55,7 +58,23 @@ class CustomProductsBody extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      Icon(Icons.favorite, size: 20, color: Colors.grey[500]),
+                      BlocBuilder<FavouritesCubit, FavouritesState>(
+                        builder: (context, state) {
+                          var cubit = context.read<FavouritesCubit>();
+                          bool isFav = cubit.isProductInFavourites(product);
+                          return IconButton(
+                            onPressed: () {
+                              //! عند الضغط على أيقونة القلب، يتم إضافة أو إزالة المنتج من قائمة المفضلة باستخدام الكيوبت 
+                              cubit.addAndRemoveFromFavourites(product);
+                            },
+                            icon: Icon(
+                              isFav ? Icons.favorite : Icons.favorite_border,
+                              size: 20,
+                              color: isFav ? Colors.red : Colors.grey[500],
+                            ),
+                          );
+                        },
+                      ),
                     ],
                   ),
                   SizedBox(height: 10),

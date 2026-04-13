@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:metchik/cubit/favoutites/favourites_cubit.dart';
+import 'package:metchik/cubit/favoutites/favourites_state.dart';
 import 'package:metchik/model/product_model.dart';
 
 class ProductDetailsImageCarousel extends StatelessWidget {
@@ -74,14 +77,25 @@ class ProductDetailsImageCarousel extends StatelessWidget {
         Positioned(
           bottom: 10,
           right: 10,
-          child: IconButton(
-            onPressed: () {},
-            tooltip: 'Add to Favorites',
-            icon: const Icon(Icons.favorite_border),
-            color: Theme.of(context).brightness == Brightness.dark
-                ? Colors.white
-                : Colors.black, // Adjust color based on theme
-            iconSize: 30,
+          child: BlocBuilder<FavouritesCubit, FavouritesState>(
+            builder: (context, state) {
+              var cubit = context.read<FavouritesCubit>();
+
+              bool isFavorite = cubit.isProductInFavourites(product);
+
+              return IconButton(
+                onPressed: () {
+                  //! هنا بنستدعي الميثود اللي بتضيف أو بتشيل المنتج من المفضلة
+                  cubit.addAndRemoveFromFavourites(product);
+                },
+                tooltip: 'Add to Favorites',
+                icon: isFavorite ? const Icon(Icons.favorite) : const Icon(Icons.favorite_border),
+                color: Theme.of(context).brightness == Brightness.dark 
+                    ? isFavorite ? Colors.red : Colors.white
+                    : isFavorite ? Colors.red : Colors.black, // Adjust color based on theme
+                iconSize: 30,
+              );
+            },
           ),
         ),
         Positioned(

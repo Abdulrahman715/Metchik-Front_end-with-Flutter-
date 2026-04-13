@@ -2,8 +2,10 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:metchik/constants.dart';
+import 'package:metchik/cubit/favoutites/favourites_cubit.dart';
 import 'package:metchik/cubit/theme_cubit.dart';
 import 'package:metchik/firebase_options.dart';
+import 'package:metchik/views/favourites_view.dart';
 import 'package:metchik/views/home_view.dart';
 import 'package:metchik/views/login_view.dart';
 import 'package:metchik/views/product_details.dart';
@@ -16,10 +18,19 @@ void main() async {
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
   runApp(
-    // 1. بنحط الـ Provider في أعلى نقطة في التطبيق
-    BlocProvider(create: (context) => ThemeCubit(), child: const Metchik()),
+    MultiBlocProvider(
+      providers: [
+        // الـ Cubit المسؤول عن الثيم (الغامق والفاتح)
+        BlocProvider<ThemeCubit>(create: (context) => ThemeCubit()),
+        // الـ Cubit المسؤول عن قائمة المفضلة
+        BlocProvider<FavouritesCubit>(create: (context) => FavouritesCubit()),
+      ],
+      child: const Metchik(),
+    ),
   );
 }
+
+class FavoritesCubit {}
 
 class Metchik extends StatelessWidget {
   const Metchik({super.key});
@@ -46,7 +57,8 @@ class Metchik extends StatelessWidget {
             ProductsView.id: (context) => ProductsView(),
             RegisterView.id: (context) => RegisterView(),
             LoginView.id: (context) => LoginView(),
-            ProductDetails.id:(context)=>ProductDetails(),
+            ProductDetails.id: (context) => ProductDetails(),
+            FavouritesView.id: (context) => FavouritesView(),
           },
           initialRoute: HomeView.id,
         );

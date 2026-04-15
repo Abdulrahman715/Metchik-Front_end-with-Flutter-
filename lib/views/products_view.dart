@@ -19,15 +19,22 @@ class _ProductsViewState extends State<ProductsView> {
 
   bool get isCartPage => selectedPageIndex == 1;
 
-  List<Widget> pages = [
-    ProductsViewBody(),
-    CartView(),
-    FavouritesView(),
-    ProfileView(),
-  ];
+  // دالة لتغيير الصفحة بناءً على الفهرس المحدد في الـ BottomNavigationBar
+  void changePage(int index) {
+    setState(() {
+      selectedPageIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
+    List<Widget> pages = [
+      ProductsViewBody(),
+      CartView(onBackToHome: () => changePage(0)),
+      FavouritesView(),
+      ProfileView(),
+    ];
+
     return Scaffold(
       extendBody: true,
 
@@ -39,11 +46,7 @@ class _ProductsViewState extends State<ProductsView> {
           ? null
           : CustomBottomNavigationBar(
               selectedPageIndex: selectedPageIndex,
-              onTap: (index) {
-                setState(() {
-                  selectedPageIndex = index;
-                });
-              },
+              onTap: changePage,
             ),
     );
   }

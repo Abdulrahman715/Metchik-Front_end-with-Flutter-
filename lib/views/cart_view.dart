@@ -7,7 +7,9 @@ import 'package:metchik/widgets/cart_order_summary.dart';
 import 'package:metchik/widgets/cart_checkout_section.dart';
 
 class CartView extends StatelessWidget {
-  const CartView({super.key});
+  final VoidCallback onBackToHome;
+
+  const CartView({super.key, required this.onBackToHome});
 
   @override
   Widget build(BuildContext context) {
@@ -18,9 +20,7 @@ class CartView extends StatelessWidget {
         centerTitle: true,
         leading: IconButton(
           icon: Icon(Icons.arrow_circle_left_outlined),
-          onPressed: () {
-            Navigator.pop(context);
-          },
+          onPressed: onBackToHome,
         ),
         title: Text(
           'Shopping Cart',

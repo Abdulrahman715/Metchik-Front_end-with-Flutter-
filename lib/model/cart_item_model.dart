@@ -3,15 +3,15 @@ import 'dart:ui';
 import 'package:metchik/model/product_model.dart';
 
 class CartItemModel {
+  final ProductModel product;
   final Color color;
   final String size;
-  final int quantity;
-  final ProductModel product;
+  int quantity;
 
   CartItemModel({
     required this.color,
     required this.size,
-    required this.quantity,
     required this.product,
+    this.quantity = 1,
   });
 }

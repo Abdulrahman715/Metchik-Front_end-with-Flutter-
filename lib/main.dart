@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:metchik/constants.dart';
+import 'package:metchik/cubit/cart/cart_cubit.dart';
 import 'package:metchik/cubit/favoutites/favourites_cubit.dart';
 import 'package:metchik/cubit/theme_cubit.dart';
 import 'package:metchik/firebase_options.dart';
@@ -16,7 +17,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-
+  
   runApp(
     MultiBlocProvider(
       providers: [
@@ -24,6 +25,9 @@ void main() async {
         BlocProvider<ThemeCubit>(create: (context) => ThemeCubit()),
         // الـ Cubit المسؤول عن قائمة المفضلة
         BlocProvider<FavouritesCubit>(create: (context) => FavouritesCubit()),
+
+        // الـ Cubit المسؤول عن قائمة الكارت
+        BlocProvider<CartCubit>(create: (context) => CartCubit()),
       ],
       child: const Metchik(),
     ),

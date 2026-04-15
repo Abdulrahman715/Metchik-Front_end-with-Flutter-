@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:metchik/cubit/cart/cart_cubit.dart';
 import 'package:metchik/helpers/show_snack_bar_message.dart';
+import 'package:metchik/model/cart_item_model.dart';
 import 'package:metchik/model/product_model.dart';
 
 import 'package:metchik/widgets/product_details_image_carousel.dart';
@@ -20,9 +23,11 @@ class CustomProductDetailsBody extends StatefulWidget {
 class _CustomProductDetailsBodyState extends State<CustomProductDetailsBody> {
   bool isLoading = false;
 
-  ProductModel? product; //? To hold the product details passed from the previous screen
+  ProductModel?
+  product; //? To hold the product details passed from the previous screen
 
-  int currentImageIndex = 0; //? To track the currently displayed image in the carousel
+  int currentImageIndex =
+      0; //? To track the currently displayed image in the carousel
 
   int quantity = 1; //? هنخلى 1 كقيمة ابتدائية للكمية
 
@@ -90,9 +95,7 @@ class _CustomProductDetailsBodyState extends State<CustomProductDetailsBody> {
                 },
               ),
               const SizedBox(height: 15),
-              ProductDetailsRatingAndAvailability(
-                isAvailable: isAvailable,
-              ),
+              ProductDetailsRatingAndAvailability(isAvailable: isAvailable),
               const SizedBox(height: 15),
               ProductDetailsSizeAndColor(
                 selectedSize: selectedSize,
@@ -109,9 +112,7 @@ class _CustomProductDetailsBodyState extends State<CustomProductDetailsBody> {
                 },
               ),
               const SizedBox(height: 20),
-              ProductDetailsDescription(
-                description: product!.description,
-              ),
+              ProductDetailsDescription(description: product!.description),
             ],
           ),
         ),
@@ -126,12 +127,19 @@ class _CustomProductDetailsBodyState extends State<CustomProductDetailsBody> {
                 message: 'Please select size and color first!',
               );
             } else {
-              // هنا المنطق اللي بيبعت البيانات للكارت
-              print("Adding to Cart: ${product!.title}");
-              print(
-                "Qty: $quantity, Size: $selectedSize, Color: $selectedColor",
+              // بنعمل Object من نوع CartItemModel ونبعته للـ Cubit
+              context.read<CartCubit>().addToCart(
+                CartItemModel(
+                  color: selectedColor!,
+                  size: selectedSize!,
+                  product: product!,
+                  quantity: quantity,
+                ),
               );
-              //Navigator.pushNamed(context, 'cart_screen');
+              showSnackBarMessage(
+                context,
+                message: 'Product added to cart successfully!',
+              );
             }
           },
         ),

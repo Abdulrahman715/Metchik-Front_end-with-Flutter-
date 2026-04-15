@@ -17,7 +17,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  
+
   runApp(
     MultiBlocProvider(
       providers: [
@@ -33,9 +33,6 @@ void main() async {
     ),
   );
 }
-
-class FavoritesCubit {}
-
 class Metchik extends StatelessWidget {
   const Metchik({super.key});
 

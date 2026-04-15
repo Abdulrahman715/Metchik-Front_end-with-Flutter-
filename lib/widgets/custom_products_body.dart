@@ -47,7 +47,7 @@ class CustomProductsBody extends StatelessWidget {
                     maxLines: 1,
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(height: 10),
+                  SizedBox(height: 5),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
@@ -77,7 +77,6 @@ class CustomProductsBody extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(height: 10),
                 ],
               ),
             ),

@@ -23,7 +23,7 @@ class _ProductsViewState extends State<ProductsView> {
     ProductsViewBody(),
     CartView(),
     FavouritesView(),
-    ProfilePage(),
+    ProfileView(),
   ];
 
   @override

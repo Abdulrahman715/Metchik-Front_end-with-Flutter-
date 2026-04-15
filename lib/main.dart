@@ -11,6 +11,7 @@ import 'package:metchik/views/home_view.dart';
 import 'package:metchik/views/login_view.dart';
 import 'package:metchik/views/product_details.dart';
 import 'package:metchik/views/products_view.dart';
+import 'package:metchik/views/profile_view.dart';
 import 'package:metchik/views/register_view.dart';
 
 void main() async {
@@ -60,6 +61,7 @@ class Metchik extends StatelessWidget {
             LoginView.id: (context) => LoginView(),
             ProductDetails.id: (context) => ProductDetails(),
             FavouritesView.id: (context) => FavouritesView(),
+            ProfileView.id: (context) => ProfileView(),
           },
           initialRoute: HomeView.id,
         );

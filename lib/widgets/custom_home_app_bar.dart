@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:metchik/widgets/custom_icon_button.dart';
 
-AppBar customHomeAppBar() {
+AppBar customHomeAppBar({required VoidCallback onPressedSettings}) {
   return AppBar(
     backgroundColor: Colors.transparent, // شفاف عشان يبان زي الصورة
     elevation: 0,
@@ -14,9 +14,7 @@ AppBar customHomeAppBar() {
           CustomIconButton(
             tooltip: 'Settings',
             icon: Icons.sort,
-            onPressed: () {
-              // Handle sort button press
-            },
+            onPressed: onPressedSettings,
           ),
           // هنا ممكن تحط الـ CircleAvatar بتاعت صورتك اللي في التصميم بدل زرار العربة
           const CircleAvatar(

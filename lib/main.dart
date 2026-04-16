@@ -13,6 +13,7 @@ import 'package:metchik/views/product_details.dart';
 import 'package:metchik/views/products_view.dart';
 import 'package:metchik/views/profile_view.dart';
 import 'package:metchik/views/register_view.dart';
+import 'package:metchik/views/setting_view.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -62,6 +63,7 @@ class Metchik extends StatelessWidget {
             ProductDetails.id: (context) => ProductDetails(),
             FavouritesView.id: (context) => FavouritesView(),
             ProfileView.id: (context) => ProfileView(),
+            SettingView.id: (context) => SettingView(),
           },
           initialRoute: HomeView.id,
         );

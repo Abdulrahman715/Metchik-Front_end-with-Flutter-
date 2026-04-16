@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:metchik/views/cart_view.dart';
 import 'package:metchik/views/favourites_view.dart';
 import 'package:metchik/views/profile_view.dart';
+import 'package:metchik/views/setting_view.dart';
 import 'package:metchik/widgets/custom_home_app_bar.dart';
 import 'package:metchik/widgets/products_view_body.dart';
 import 'package:metchik/widgets/custom_bottom_navigation_bar.dart';
@@ -38,7 +39,11 @@ class _ProductsViewState extends State<ProductsView> {
     return Scaffold(
       extendBody: true,
 
-      appBar: customHomeAppBar(),
+      appBar: customHomeAppBar(
+        onPressedSettings: () {
+            Navigator.pushNamed(context, SettingView.id);
+        },
+      ),
 
       body: pages[selectedPageIndex],
 

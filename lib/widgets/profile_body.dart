@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:metchik/widgets/image_and_name_section.dart';
 import 'package:metchik/widgets/custom_profile_options_group.dart';
-import 'package:metchik/widgets/custom_profile_option.dart';
+import 'package:metchik/widgets/custom_option.dart';
 
 class ProfileBody extends StatelessWidget {
   const ProfileBody({super.key});
@@ -13,9 +13,9 @@ class ProfileBody extends StatelessWidget {
       child: ListView(
         children: [
           ImageAndNameSection(),
-      
+
           const SizedBox(height: 20),
-      
+
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
@@ -23,36 +23,30 @@ class ProfileBody extends StatelessWidget {
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
           ),
-      
+
           CustomProfileOptionsGroup(
             options: [
-              CustomProfileOption(
+              CustomOption(
                 onTap: () {},
                 icon: Icons.person_outline,
                 title: 'Account Information',
               ),
-              CustomProfileOption(
+              CustomOption(
                 onTap: () {},
                 icon: Icons.shopping_bag_outlined,
                 title: 'My Orders',
               ),
-              CustomProfileOption(
+              CustomOption(
                 icon: Icons.location_on_outlined,
                 title: 'Address Management',
               ),
-              CustomProfileOption(
-                icon: Icons.settings_outlined,
-                title: 'Setting',
-              ),
-              CustomProfileOption(
-                icon: Icons.lock_outline,
-                title: 'Password Manager',
-              ),
+              CustomOption(icon: Icons.settings_outlined, title: 'Setting'),
+              CustomOption(icon: Icons.lock_outline, title: 'Password Manager'),
             ],
           ),
-      
+
           const SizedBox(height: 25),
-      
+
           // 3. Support Section
           const Text(
             'Support',
@@ -61,13 +55,13 @@ class ProfileBody extends StatelessWidget {
           const SizedBox(height: 15),
           CustomProfileOptionsGroup(
             options: [
-              CustomProfileOption(
-                onTap: (){},
+              CustomOption(
+                onTap: () {},
                 icon: Icons.help_outline,
-                title: 'Help Center'
+                title: 'Help Center',
               ),
-              CustomProfileOption(
-                onTap: (){},
+              CustomOption(
+                onTap: () {},
                 icon: Icons.logout,
                 title: 'Logout',
                 isLogout: true,

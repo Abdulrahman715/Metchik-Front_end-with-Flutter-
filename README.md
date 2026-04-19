@@ -97,30 +97,31 @@ This project follows SOLID principles and Clean Code standards to ensure scalabi
   <tr>
     <td><b>Splash & Auth</b></td>
     <td><b>Home & Products</b></td>
-    <td><b>Cart System</b></td>
+    <td><b>Cart & Profile</b></td>
+    <td><b>Register & Setting</b></td>
   </tr>
   <tr>
-    <td>
-      <img src="lib/assets/screens/logo.jpg" width="180">
-      <img src="lib/assets/screens/login.jpg" width="180">
+    <td valign="top">
+      <img src="screens/logo.jpg" width="160">
+      <br><br>
+      <img src="screens/login.jpg" width="160">
     </td>
-    <td>
-      <img src="lib/assets/screens/main.jpg" width="180">
-      <img src="lib/assets/screens/favourite.jpg" width="180">
+    <td valign="top">
+      <img src="screens/main.jpg" width="160">
+      <br><br>
+      <img src="screens/favourite.jpg" width="160">
     </td>
-    <td>
-      <img src="lib/assets/screens/cart.jpg" width="180">
-      <img src="lib/assets/screens/profile.jpg" width="180">
+    <td valign="top">
+      <img src="screens/cart.jpg" width="160">
+      <br><br>
+      <img src="screens/profile.jpg" width="160">
+    </td>
+    <td valign="top">
+      <img src="screens/register.jpg" width="160">
+      <br><br>
+      <img src="screens/setting.jpg" width="160">
     </td>
   </tr>
 </table>
 
 <br>
-
-<details>
-  <summary><b>اضغط هنا لرؤية باقي الشاشات (More Screens) 📂</b></summary>
-  <div align="center">
-    <img src="lib/assets/screens/register.jpg" width="180">
-    <img src="lib/assets/screens/setting.jpg" width="180">
-  </div>
-</details>

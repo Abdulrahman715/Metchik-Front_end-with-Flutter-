@@ -1,50 +1,86 @@
-# 🛍️ Metchik - Modern E-Commerce App
+# 🛍️ Metchik - Modern E-Commerce App 📱
 
-Metchik هو تطبيق تجارة إلكترونية متكامل ومطور باستخدام Flutter، يركز على تقديم تجربة مستخدم (UX) سلسة ومعمارية كود نظيفة (Clean Code) تعتمد على مبادئ SOLID.
+A professional E-Commerce Application built with Flutter, focused on clean architecture, high performance, and seamless user experience.
 
-🚀 المميزات التقنية المتقدمة (Advanced Technical Features)
-1. نظام الهوية والمصادقة (Firebase Authentication)
-Login & Register: دمج كامل مع Firebase Auth لإدارة حسابات المستخدمين بأمان.
+This project follows SOLID principles and Clean Code standards to ensure scalability.
 
-Real-time Validation: التحقق من البيانات المدخلة لحظياً لضمان دقة معلومات التسجيل.
+تطبيق متجر إلكتروني متكامل باستخدام Flutter، يعتمد على معمارية برمجية نظيفة وربط كامل مع Firebase لإدارة المستخدمين مع نظام متطور لإدارة الحالة (State Management).
 
-State Persistence: الحفاظ على حالة تسجيل الدخول للمستخدم لضمان تجربة دخول سريعة ومستمرة.
+✅ Current Progress (ما تم إنجازه)
+🎨 UI & Design
+[x] تصميم واجهة المنتجات الرئيسية (Products View).
 
-2. هيكلية التنقل (Navigation Architecture)
-Bottom Navigation Bar: تنفيذ نظام تنقل رئيسي يربط بين أقسام التطبيق (Home, Favorites, Profile) بسهولة.
+[x] بناء صفحة تفاصيل المنتج (Product Details) ودعم الـ Arguments.
 
-Smart UI Control: برمجة مخصصة لإخفاء الـ Bottom Bar في صفحات معينة (مثل صفحة العربة/Cart) لتقليل التشتت وتحسين الـ User Flow أثناء عملية الشراء.
+[x] تصميم صفحة المفضلة (Favorites) بنظام الـ Grid.
 
-Named Routing: استخدام نظام الـ Routes المنظمة للتنقل بين الصفحات مع تمرير البيانات (Arguments) بكفاءة.
+[x] إنشاء واجهة العربة (Cart UI) مع متحكمات الكمية.
 
-3. إدارة الحالة المتقدمة (State Management with BLoC)
-استخدام Cubit/Bloc لإدارة (Cart, Favorites, Theme, Auth) بشكل منفصل ومنظم.
+[x] تصميم صفحة البروفايل (Profile) والإعدادات (Settings) بشكل عصري ومقسم لمجموعات.
 
-MultiBlocProvider: إدارة مركزية للحالات لضمان تحديث الواجهات فورياً في أي مكان بالتطبيق.
+[x] تنفيذ Bottom Navigation Bar احترافي للتنقل بين أقسام التطبيق الأساسية.
 
-4. نظام العربة الذكي (Advanced Cart Logic)
-دعم إضافة المنتجات بتخصيصات دقيقة (المقاس، اللون، الكمية).
+🔐 Firebase & Backend
+[x] ربط التطبيق بـ Firebase Authentication.
 
-منطق برمجي يمنع تكرار المنتجات ويدير الكميات والأسعار الإجمالية بدقة عالية.
+[x] إنشاء صفحات تسجيل الدخول (Login) وإنشاء الحساب (Register).
 
-5. التحكم في المظهر والـ UI
-Dynamic Dark/Light Mode: تبديل كامل للثيم مع حفظ الاختيارات.
+[x] إدارة حالة المستخدم (User Session) والتأكد من بقاء الجلسة نشطة.
 
-Responsive Design: واجهات متجاوبة تعتمد على أحدث أساليب التصميم لضمان عملها على مختلف أحجام الشاشات.
+[x] (قيد التنفيذ) ربط بيانات المنتجات والطلبات بـ Cloud Firestore.
 
-🛠️ التقنيات المستخدمة (Tech Stack)
-Framework: Flutter
+🧠 State Management (BLoC/Cubit)
+[x] استخدام Cubit لإدارة ثيم التطبيق (Dark/Light Mode).
 
-Backend: Firebase (Authentication & Cloud Firestore)
+[x] إدارة منطق العربة (Cart Logic) بالكامل (إضافة، مسح، تحديث الكمية والسعر الإجمالي).
 
-State Management: Flutter BLoC / Cubit
+[x] نظام المفضلة (Favorites Cubit) لإضافة وحذف المنتجات لحظياً.
 
-Local Database: Hive / Shared Preferences
+[x] استخدام MultiBlocProvider لتنظيم الـ Providers في أعلى شجرة الودجت.
 
-Architecture: Clean Architecture
+🔄 Navigation & UX
+[x] استخدام Named Routes لتنظيم التنقل بين الشاشات.
 
-📸 معرض الصور (Screenshots)
-(هنا تضع صور صفحات الـ Login، الـ Register، الـ Bottom Bar، والـ Profile)
+[x] إخفاء الـ Bottom Navigation Bar في صفحات معينة (مثل صفحة العربة) لتحسين الـ UX.
 
-👨‍💻 مطور المشروع (Developer)
-تم تطوير هذا المشروع بواسطة المهندس عبدالرحمن محمد نجيب، خريج كلية الحاسبات والمعلومات بجامعة المنيا، والمتخصص في تطوير تطبيقات الموبايل باستخدام Flutter.
+[x] دعم الـ Dark Mode وتغييره من داخل إعدادات البروفايل مع حفظ الحالة.
+
+🛠️ Technologies & Tools
+Framework: Flutter & Dart.
+
+State Management: Flutter BLoC / Cubit.
+
+Backend: Firebase Auth & Firestore.
+
+Local Storage: Hive / Shared Preferences.
+
+Architecture: Clean Architecture & SOLID Principles.
+
+Navigation: Named Routes & Material Page Routes.
+
+📚 What I Learned From This Project
+تطبيق مبادئ الـ Clean Code في المشاريع الكبيرة.
+
+إدارة الحالات المعقدة (Nested States) باستخدام Cubit.
+
+التعامل الاحترافي مع Firebase Authentication.
+
+بناء نظام Navigation مرن يتحكم في ظهور الـ Bottom Bar.
+
+تمرير البيانات المعقدة بين الصفحات باستخدام الـ Arguments.
+
+🔮 Next Steps (الخطوات القادمة)
+[ ] إكمال نظام الـ Checkout وعملية الدفع.
+
+[ ] إضافة نظام الإشعارات (Push Notifications).
+
+[ ] تحسين أداء جلب الصور باستخدام Cache.
+
+[ ] إضافة خاصية البحث المتقدم (Advanced Search).
+
+👨‍💻 Author
+Abdulrahman Muhammad Nagiub
+
+Flutter Developer | Software Engineer 🚀
+
+Graduate of the Faculty of Computers and Information, Minia University.

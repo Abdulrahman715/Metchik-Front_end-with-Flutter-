@@ -12,7 +12,7 @@ This project follows SOLID principles and Clean Code standards to ensure scalabi
 
 ### تحميل التطبيق 📥
 يمكنك تحميل أحدث نسخة تجريبية من التطبيق (APK) من الرابط التالي:
-[اضغط هنا لتحميل App Release](https://github.com/Abdulrahman715/News_App/releases/download/v1.0.0/release-apk.zip)
+[اضغط هنا لتحميل App Release](https://github.com/Abdulrahman715/Metchik-Front_end-with-Flutter-/releases/download/v1.0.0/app-release.apk)
 
 > **ملاحظة:** الملف مضغوط بصيغة ZIP، بعد التحميل فك الضغط عنه وهتلاقي ملف الـ APK جواه.
 ---

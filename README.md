@@ -5,6 +5,9 @@ This project follows SOLID principles and Clean Code standards to ensure scalabi
 
 تطبيق متجر إلكتروني متكامل باستخدام Flutter، يعتمد على معمارية برمجية نظيفة وربط كامل مع Firebase لإدارة المستخدمين مع نظام متطور لإدارة الحالة (State Management).
 
+---
+
+
 
 
 ### تحميل التطبيق 📥

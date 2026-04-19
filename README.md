@@ -57,7 +57,7 @@ This project follows SOLID principles and Clean Code standards to ensure scalabi
 - Architecture: Clean Architecture & SOLID Principles.
 - Navigation: Named Routes & Material Page Routes.
 
-![Demo_of_the_project](assets/demo/metchik.MP4)
+![Demo_of_the_project](assets/demo/metchik.mp4)
 
 ---
 

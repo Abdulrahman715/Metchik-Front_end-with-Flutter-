@@ -20,6 +20,7 @@ void main() async {
 
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
+  //! Add MultiBlocProvider to handle the providers of the top of tree of widgets
   runApp(
     MultiBlocProvider(
       providers: [

@@ -60,17 +60,6 @@ This project follows SOLID principles and Clean Code standards to ensure scalabi
 - Architecture: Clean Architecture & SOLID Principles.
 - Navigation: Named Routes & Material Page Routes.
 
-![logo_page](screens/logo.jpg)
-![Register_page](screens/register.jpg)
-![Login_page](screens/login.jpg)
-![home_page](screens/main.jpg)
-![product_details_page](screens/.jpg)
-![favourite_page](screens/favourite.jpg)
-![cart_page](screens/cart.jpg)
-![profile_page](screens/profile.jpg)
-![setting_page](screens/setting.jpg)
-
-
 ---
 
 ## 📚 What I Learned From This Project
@@ -101,3 +90,37 @@ This project follows SOLID principles and Clean Code standards to ensure scalabi
 **Abdulrahman Muhammad Nagiub**
 *Flutter Developer | Software Engineer 🚀*
 *Graduate of the Faculty of Computers and Information, Minia University*
+
+### 📸 App Screenshots (معرض الصور)
+
+<table style="width: 100%; text-align: center;">
+  <tr>
+    <td><b>Splash & Auth</b></td>
+    <td><b>Home & Products</b></td>
+    <td><b>Cart System</b></td>
+  </tr>
+  <tr>
+    <td>
+      <img src="lib/assets/screens/logo.jpg" width="180">
+      <img src="lib/assets/screens/login.jpg" width="180">
+    </td>
+    <td>
+      <img src="lib/assets/screens/main.jpg" width="180">
+      <img src="lib/assets/screens/favourite.jpg" width="180">
+    </td>
+    <td>
+      <img src="lib/assets/screens/cart.jpg" width="180">
+      <img src="lib/assets/screens/profile.jpg" width="180">
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<details>
+  <summary><b>اضغط هنا لرؤية باقي الشاشات (More Screens) 📂</b></summary>
+  <div align="center">
+    <img src="lib/assets/screens/register.jpg" width="180">
+    <img src="lib/assets/screens/setting.jpg" width="180">
+  </div>
+</details>

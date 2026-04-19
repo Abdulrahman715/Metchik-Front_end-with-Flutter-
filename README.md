@@ -99,6 +99,7 @@ This project follows SOLID principles and Clean Code standards to ensure scalabi
     <td><b>Home & Products</b></td>
     <td><b>Cart & Profile</b></td>
     <td><b>Register & Setting</b></td>
+    <td><b>Product_details</b></td>
   </tr>
   <tr>
     <td valign="top">

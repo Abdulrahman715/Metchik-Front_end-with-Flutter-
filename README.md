@@ -121,6 +121,9 @@ This project follows SOLID principles and Clean Code standards to ensure scalabi
       <br><br>
       <img src="screens/setting.jpg" width="160">
     </td>
+    <td valign="top">
+      <img src="screens/product_details.jpg" width="160">
+    </td>
   </tr>
 </table>
 

@@ -91,33 +91,3 @@ This project follows SOLID principles and Clean Code standards to ensure scalabi
 **Abdulrahman Muhammad Nagiub**
 *Flutter Developer | Software Engineer 🚀*
 *Graduate of the Faculty of Computers and Information, Minia University*
-
-
-📚 What I Learned From This Project
-
-- 
-تطبيق مبادئ الـ Clean Code في المشاريع الكبيرة.
-
-إدارة الحالات المعقدة (Nested States) باستخدام Cubit.
-
-التعامل الاحترافي مع Firebase Authentication.
-
-بناء نظام Navigation مرن يتحكم في ظهور الـ Bottom Bar.
-
-تمرير البيانات المعقدة بين الصفحات باستخدام الـ Arguments.
-
-🔮 Next Steps (الخطوات القادمة)
-[ ] إكمال نظام الـ Checkout وعملية الدفع.
-
-[ ] إضافة نظام الإشعارات (Push Notifications).
-
-[ ] تحسين أداء جلب الصور باستخدام Cache.
-
-[ ] إضافة خاصية البحث المتقدم (Advanced Search).
-
-👨‍💻 Author
-Abdulrahman Muhammad Nagiub
-
-Flutter Developer | Software Engineer 🚀
-
-Graduate of the Faculty of Computers and Information, Minia University.

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:metchik/model/product_model.dart';
 import 'package:metchik/services/all_products_service.dart';
 import 'package:metchik/widgets/categories_list.dart';
 import 'package:metchik/widgets/custom_products_body.dart';
 import 'package:metchik/widgets/custom_welcome.dart';
 import 'package:metchik/widgets/offers_list.dart';
 import 'package:metchik/widgets/row_body_products_view.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 class ProductsViewBody extends StatelessWidget {
   const ProductsViewBody({super.key});
@@ -46,37 +48,77 @@ class ProductsViewBody extends StatelessWidget {
             ),
           ),
 
-          SizedBox(height: 40), 
+          SizedBox(height: 40),
 
-          FutureBuilder(
+          FutureBuilder<List<ProductModel>>(
             future: AllProductsService().getAllProducts(),
             builder: (context, asyncSnapshot) {
-              if (asyncSnapshot.connectionState == ConnectionState.waiting) {
-                return Center(child: CircularProgressIndicator());
-              } else if (asyncSnapshot.hasError) {
+              // 1. تحديد حالة التحميل
+              bool isLoading =
+                  asyncSnapshot.connectionState == ConnectionState.waiting;
+
+              if (asyncSnapshot.hasError) {
                 return Center(child: Text('Error: ${asyncSnapshot.error}'));
-              } else if (!asyncSnapshot.hasData || asyncSnapshot.data!.isEmpty) {
+              }
+
+              // 2. تجهيز البيانات: لو بيحمل هنبعت ليستة وهمية، لو خلص هنبعت الداتا الحقيقية
+              final products = isLoading
+                  ? List.filled(6, ProductModel.dummy())
+                  : (asyncSnapshot.data ?? []);
+
+              if (!isLoading && products.isEmpty) {
                 return Center(child: Text('No products found.'));
-              } else {
-                final products = asyncSnapshot.data!;
-                return GridView.builder(
-                clipBehavior: Clip.none,
-                shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  mainAxisSpacing: 20,
-                  crossAxisSpacing: 20,
-                  childAspectRatio: 0.75,
+              }
+
+              // 3. تطبيق الـ Skeletonizer
+              return Skeletonizer(
+                enabled: isLoading, // هيشتغل طول ما الحالة Waiting
+                child: GridView.builder(
+                  clipBehavior: Clip.none,
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    mainAxisSpacing: 20,
+                    crossAxisSpacing: 20,
+                    childAspectRatio: 0.75,
+                  ),
+                  itemCount: products.length,
+                  itemBuilder: (context, index) {
+                    return CustomProductsBody(product: products[index]);
+                  },
                 ),
-                itemCount: products.length,
-                itemBuilder: (context, index) {
-                  return CustomProductsBody( //! body of the product card
-                    product: products[index],
-                  );
-                },
-              );}
-            }
+              );
+
+              // if (asyncSnapshot.connectionState == ConnectionState.waiting) {
+              //   return Center(child: CircularProgressIndicator());
+              // } else if (asyncSnapshot.hasError) {
+              //   return Center(child: Text('Error: ${asyncSnapshot.error}'));
+              // } else if (!asyncSnapshot.hasData ||
+              //     asyncSnapshot.data!.isEmpty) {
+              //   return Center(child: Text('No products found.'));
+              // } else {
+              //   final products = asyncSnapshot.data!;
+              //   return GridView.builder(
+              //     clipBehavior: Clip.none,
+              //     shrinkWrap: true,
+              //     physics: NeverScrollableScrollPhysics(),
+              //     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              //       crossAxisCount: 2,
+              //       mainAxisSpacing: 20,
+              //       crossAxisSpacing: 20,
+              //       childAspectRatio: 0.75,
+              //     ),
+              //     itemCount: products.length,
+              //     itemBuilder: (context, index) {
+              //       return CustomProductsBody(
+              //         //! body of the product card
+              //         product: products[index],
+              //       );
+              //     },
+              //   );
+              // }
+            },
           ),
         ],
       ),
